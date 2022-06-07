@@ -28,7 +28,7 @@ describe('Lottery', () => {
   it('allows one account to enter', async () => {
     await lottery.methods.enter().send({
       from: accounts[1],
-      value: web3.utils.toWei('0.01', 'ether')
+      value: web3.utils.toWei('0.0001', 'ether')
     })
 
     const players = await lottery.methods.getPlayers().call({ from: accounts[0] })
@@ -40,7 +40,7 @@ describe('Lottery', () => {
     for (let idx = 0; idx < 2; idx++) {
       await lottery.methods.enter().send({
         from: accounts[idx + 1],
-        value: web3.utils.toWei('0.01', 'ether')
+        value: web3.utils.toWei('0.0001', 'ether')
       })
     }
 
